@@ -39,7 +39,7 @@ lazy val processing = project
       dependencies.sparkSql,
       dependencies.sparkSession,
       dependencies.elastic,
-      dependencies.elasticSpark,
+      //dependencies.elasticSpark,
       dependencies.kafkaClient
     )
   )
@@ -81,7 +81,7 @@ lazy val dependencies =
     val elastic = "org.elasticsearch" % "elasticsearch-hadoop" % elasticVersion
     val elasticSpark = "org.elasticsearch" %% "elasticsearch-spark-20" % elasticVersion
 
-    val kafkaClient = libraryDependencies += "org.apache.kafka" % "kafka-clients" % kafkaClientVersion
+    val kafkaClient = "org.apache.kafka" % "kafka-clients" % kafkaClientVersion
 
     val guava = "com.google.guava" % "guava" % guavaVersion
 
