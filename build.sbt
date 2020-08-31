@@ -38,7 +38,9 @@ lazy val processing = project
       dependencies.spark,
       dependencies.sparkSql,
       dependencies.sparkSession,
-      dependencies.elastic,
+      //dependencies.elastic,
+      dependencies.spray,
+      dependencies.sparkNetworkCommon,
       //dependencies.elasticSpark,
       dependencies.kafkaClient
     )
@@ -66,6 +68,7 @@ lazy val dependencies =
     val guavaVersion = "29.0-jre"
     val elasticVersion = "7.9.0"
     val kafkaClientVersion = "2.6.0"
+    val sprayVersion = "1.3.5"
 
     val log4jCore = "org.apache.logging.log4j" % "log4j-core" % log4jVersion
     val log4jApi = "org.apache.logging.log4j" % "log4j-api" % log4jVersion
@@ -74,9 +77,13 @@ lazy val dependencies =
 
     val scalaLogging   = "com.typesafe.scala-logging" %% "scala-logging" % scalaLoggingVersion
 
+    val spray = "io.spray" %%  "spray-json" % sprayVersion
+
     val spark = "org.apache.spark" %% "spark-core" % sparkVersion
     val sparkSql = "org.apache.spark" %% "spark-sql" % sparkVersion
     val sparkSession = "org.apache.spark" %% "spark-streaming" % sparkVersion
+
+    val sparkNetworkCommon = "org.apache.spark" %% "spark-network-common" % sparkVersion
 
     val elastic = "org.elasticsearch" % "elasticsearch-hadoop" % elasticVersion
     val elasticSpark = "org.elasticsearch" %% "elasticsearch-spark-20" % elasticVersion

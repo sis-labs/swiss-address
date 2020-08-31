@@ -92,7 +92,7 @@ object ThirdDbStructure {
         Nil),
     "08" -> StructType(
       StructField("rec", StringType, nullable = false) ::
-        StructField("hauskey", StringType, nullable = false) ::
+        StructField("buildingId", StringType, nullable = false) ::
         StructField("a_plz", StringType, nullable = false) ::
         StructField("bbz_plz", StringType, nullable = false) ::
         StructField("boten_bbz", StringType, nullable = false) ::
@@ -174,7 +174,7 @@ object ThirdDbStructure {
 
     // TODO: improve performance since the cartesian product is a bit huge to fit in memory of a strandalone cluster
     // TODO: select only relevant columns for final indexing
-    spark.sql("select * from v01 " +
+    spark.sql("select v02.str_bez_2k as city from v01 " +
       "join v04 on v01.onrp == v04.onrp " +
       "join v06 on v04.str_id == v06.str_id").show
   }

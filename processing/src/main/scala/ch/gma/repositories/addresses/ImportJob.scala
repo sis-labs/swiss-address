@@ -36,7 +36,7 @@ object ImportJob {
     SampleIndexer.run()
 
     // TODO: validate input so that we can use the first arg as input file and following as output (fs, elastisearch, ...)
-    /*
+
     val f = spark.read
       // due to the csv data, we have to force the encoding
       .option("charset", "ISO-8859-1")
@@ -52,10 +52,9 @@ object ImportJob {
     f.repartition(col("_c0"))
       // just for the test, output those information in the temp repository
       .write.csv(s"${outputFolder}/${id()}")
-    */
 
     // perform the indexation process
-    //ThirdDbStructure.perform(f)
+    ThirdDbStructure.perform(f)
 
   }
 }
